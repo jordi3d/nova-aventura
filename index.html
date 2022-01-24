@@ -1,20 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Esculleix la teva pròpia aventura</title>
-<link rel="stylesheet" href="styles.css"/>
+<title>La teva aventura</title>
+<style>
+    body {
+        max-width: 30rem;
+        margin: 0 auto;
+    }
+    .text {
+        background-color: coral;
+        padding: 2em;
+        margin-bottom: 2em;
+        font-size: x-large;
+    }
+</style>
 </head>
 <body>
     <header>
-        Esculleix la teva aventura
+        <h1>Esculleix la teva pr&ograve;pia aventura</h1>
     </header>
-    <nav>
-        Pàgina X
-    </nav>
-    <section>
-        Text Principal
-        SI 
-        NO 
-    </section>
+    <main>
+        <header>
+            <div id="numPag" style="text-align:right;">
+                P&agrave;gina
+            </div>
+        </header>
+        <section class="text">
+            Text Principal
+        </section>
+        <footer style="text-align:center;">
+            <button onclick="ferSi();"><div style="width:32px; height:18px; background:red; padding:15px;">SI</button></a>
+            <button onclick="ferNo();"><div style="width:32px; height:18px; background:blue; padding:15px;">NO</button></a>
+        </footer>
+    </main>
+    <script>
+        let historia = [{text:'benvingut'},{text:'continuem'}];
+        let pagina = 0;
+        let text = document.querySelector('.text');
+        text.textContent = historia[pagina].text;
+        let nPag = document.querySelector('#numPag');
+        nPag.textContent = `Pàgina ${pagina}`;
+
+        function ferSi() {
+            pagina = pagina + 1;
+            nPag.textContent = `Pàgina ${pagina}`;
+            text.textContent = historia[pagina].text;
+        }
+
+        function ferNo() {
+            pagina = pagina - 1;
+            nPag.textContent = `Pàgina ${pagina}`;
+            text.textContent = historia[pagina].text;
+        }       
+    </script>
 </body>
 </html>
