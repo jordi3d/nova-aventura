@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html>
+
 <head>
-<title>La teva aventura</title>
-<style>
-    body {
-        max-width: 30rem;
-        margin: 0 auto;
-    }
-    .text {
-        background-color: coral;
-        padding: 2em;
-        margin-bottom: 2em;
-        font-size: x-large;
-    }
-</style>
+    <title>La teva aventura</title>
+    <style>
+        body {
+            max-width: 30em;
+            margin: 0 auto;
+        }
+        
+        .text {
+            background-color: coral;
+            padding: 2em;
+            margin-bottom: 2em;
+            font-size: x-large;
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <h1>Esculleix la teva pr&ograve;pia aventura</h1>
@@ -26,32 +28,153 @@
             </div>
         </header>
         <section class="text">
-            Text Principal
+            Comencem
         </section>
+        <!-- script>
+            let pagina = 0;
+            let text = document.querySelector('.text');
+            text.textContent = missatges[pagina].text;
+            let nPag = document.querySelector('#numPag');
+            nPag.textContent = `Pàgina ${pagina}`;
+            function ferSi() {
+                pagina = pagina + 1;
+                nPag.textContent = `Pàgina ${pagina}`;
+                text.textContent = missatges[pagina].text;
+            }
+            function ferNo() {
+                pagina = pagina - 1;
+                nPag.textContent = `Pàgina ${pagina}`;
+                text.textContent = missatges[pagina].text;
+            }       
+        </script -->
         <footer style="text-align:center;">
             <button onclick="ferSi();"><div style="width:32px; height:18px; background:red; padding:15px;">SI</button></a>
             <button onclick="ferNo();"><div style="width:32px; height:18px; background:blue; padding:15px;">NO</button></a>
         </footer>
     </main>
     <script>
-        let historia = [{text:'benvingut'},{text:'continuem'}];
+        /*let readlineSync = require("readline-sync");*/
+
+        let missatges = [{
+            text: 'FUNCIONA?'
+        }, {
+            text: 'NO HO TOQUIS!'
+        }, {
+            text: 'HO HAS TOCAT?'
+        }, {
+            text: "L'HAS CAGAT"
+        }, {
+            text: 'CAP PROBLEMA'
+        }, {
+            text: 'HO SAP ALGÚ?'
+        }, {
+            text: "ENS DONARÀ PROBLEMES?"
+        }, {
+            text: "AMAGA-HO"
+        }, {
+            text: "BURRO!"
+        }, {
+            text: "POTS DONAR LA CULPA A UN ALTRE?"
+        }, {
+            text: "LLENÇA-HO"
+        }];
+        let i = 0;
+        let continuar = "";
+
         let pagina = 0;
         let text = document.querySelector('.text');
-        text.textContent = historia[pagina].text;
+        text.textContent = missatges[pagina].text;
         let nPag = document.querySelector('#numPag');
         nPag.textContent = `Pàgina ${pagina}`;
 
         function ferSi() {
-            pagina = pagina + 1;
+            //pagina = pagina + 1;
             nPag.textContent = `Pàgina ${pagina}`;
-            text.textContent = historia[pagina].text;
+            text.textContent = missatges[pagina].text;
+            return "s";
         }
 
         function ferNo() {
-            pagina = pagina - 1;
+            //pagina = pagina - 1;
             nPag.textContent = `Pàgina ${pagina}`;
-            text.textContent = historia[pagina].text;
-        }       
+            text.textContent = missatges[pagina].text;
+            return "n";
+        }
+
+        function si_no() {
+            /*if (pagina === 0) {
+                return prompt("Vols jugar? [s/n]");
+            }
+            return prompt("[s/n]");*/
+            return "n";
+        }
+
+        function check_sn() {
+            while (true) {
+                let cont2 = si_no();
+                if (cont2 !== "s" && cont2 !== "n")
+                    alert("Respon amb s/n");
+                else
+                    return cont2;
+            }
+        }
+
+        document.write(missatges[0].text); //Funciona
+
+        while (true) {
+            pagina = i;
+            if (i !== 4) continuar = ferSi(); //check_sn(); //evitar repetir missatge si i === 4
+            if (i === 0) { //funciona?
+                if (continuar === "s") {
+                    document.write(missatges[1].text); //No ho toquis
+                    break;
+                } else {
+                    document.write(missatges[1].text); //No ho toquis
+                    i = 1;
+                }
+            }
+            if (i === 1) { //ho has tocat?
+                let continuar = ferSi(); //check_sn();
+                if (continuar === "s") {
+                    document.write(missatges[8].text); //Burro!
+                    i = 3;
+                } else {
+                    document.write(missatges[6].text); //Ens donarà problemes?
+                    i = 2;
+                }
+            }
+            if (i === 2) { //Ens donarà problemes?
+                let continuar = ferSi(); //check_sn();
+                if (continuar === "s") {
+                    document.write(missatges[3].text); //L'has cagat
+                    i = 4;
+                } else {
+                    document.write(missatges[10].text); //Llença-ho
+                    break;
+                }
+            }
+            if (i === 3) { //Ho sap algú?
+                document.write(missatges[5].text); //Ho sap algú?
+                let continuar = ferNo(); //check_sn();
+                if (continuar === "s") {
+                    document.write(missatges[3].text); //L'has cagat
+                    i = 4;
+                } else {
+                    document.write(missatges[7].text); //Amaga-ho
+                    break;
+                }
+            }
+            if (i === 4) { //Pots culpar a algú?
+                document.write(missatges[9].text); //Pots donar la culpa un altre?
+                let continuar = ferSi(); //check_sn();
+                if (continuar === "s")
+                    break;
+                else
+                    document.write(missatges[3].text); //L'has cagat
+            }
+        }
+        document.write(missatges[4].text); //Cap problema
     </script>
 </body>
+
 </html>
