@@ -30,31 +30,8 @@
         <section class="text">
             Comencem
         </section>
-        <!-- script>
-            let pagina = 0;
-            let text = document.querySelector('.text');
-            text.textContent = missatges[pagina].text;
-            let nPag = document.querySelector('#numPag');
-            nPag.textContent = `Pàgina ${pagina}`;
-            function ferSi() {
-                pagina = pagina + 1;
-                nPag.textContent = `Pàgina ${pagina}`;
-                text.textContent = missatges[pagina].text;
-            }
-            function ferNo() {
-                pagina = pagina - 1;
-                nPag.textContent = `Pàgina ${pagina}`;
-                text.textContent = missatges[pagina].text;
-            }       
-        </script -->
-        <footer style="text-align:center;">
-            <button onclick="ferSi();"><div style="width:32px; height:18px; background:red; padding:15px;">SI</button></a>
-            <button onclick="ferNo();"><div style="width:32px; height:18px; background:blue; padding:15px;">NO</button></a>
-        </footer>
     </main>
     <script>
-        /*let readlineSync = require("readline-sync");*/
-
         let missatges = [
             { text: 'FUNCIONA?'}, 
             { text: 'NO HO TOQUIS!'}, 
@@ -165,6 +142,10 @@
         }
         document.write(missatges[4].text); //Cap problema
     </script>
+    <footer style="text-align:center;">
+        <button onclick="ferSi();"><div style="width:32px; height:18px; background:red; padding:15px;">SI</button></a>
+        <button onclick="ferNo();"><div style="width:32px; height:18px; background:blue; padding:15px;">NO</button></a>
+    </footer>
 </body>
 
 </html>
