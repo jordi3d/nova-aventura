@@ -10,15 +10,7 @@
         }
         
         .text {
-    background-color: coral;
-    padding: 2em;
-    margin-bottom: 2em;
-    font-size: x-large;
-    width: 320px;
-    height: 200px;
-    position: absolute;
-    left: 229px;
-    top: 127px;
+    
         }
 		.usuari {
     background-color: gray;
@@ -28,8 +20,8 @@
     width: 132px;
     height: 115px;
     position: absolute;
-    left: 655px;
-    top: 129px;
+    left: 293px;
+    top: 130px;
         }
 		.cami {
     background-color: gray;
@@ -39,43 +31,41 @@
     width: 120px;
     height: 86px;
     position: absolute;
-    left: 655px;
-    top: 289px;
+    left: 293px;
+    top: 291px;
         }
     </style>
 </head>
 
 <body>
-    <div style="position: absolute; top: 20px; left: 259px; width: 538px; height: 47px;">
+    <div style="position: absolute; top: 29px; left: 176px; width: 538px; height: 47px;">
         <h1>Esculleix la teva pr&ograve;pia aventura!</h1>
     </div>
 	<header>
-      <div id="numPag" style="text-align: right; position: absolute; left: 562px; top: 107px;">
-                P&agrave;gina
+      <div id="numPag" style="text-align: right; position: absolute; left: 331px; top: 442px;">
+                P&agrave;gina:
             </div>
-		<div style="position: absolute; left: 862px; top: 30px; width: 210px; height: 50px;">
-			<form>
+		<div style="position: absolute; left: 806px; top: 23px; width: 266px; height: 50px;">
+			<form onSubmit="actualitzaNom();">
 				<label><strong>LOGIN</strong></label><br/><br/>
   				<label for="nom">Nom:</label><br/>
  				<input type="text" id="nom" name="nom"/><br/>
   				<label for="cognom">Cognom:</label><br/>
   				<input type="text" id="cognom" name="cognom"/><br/>
 				<label for="foto">Foto:</label><br/>
-  				<input type="text" id="foto" name="foto"/>
+  				<input type="file" id="foto" name="foto"/><br/><br/>
+				<input type="submit" value="Confirmar"/>
 			</form>
 		</div>
 </header>
-		<div>
-        <div class="text">
-            Comencem
-        </div>
-		<div class="usuari"> 
-			<div style="position: absolute; left: 10px; top: 10px; height: 64px;"><img src="jordi.png" style="width:80px;"/></div>
-			<div id="nomIn" style="position: absolute; left: 10px; top: 98px; width: 148px;"></div>
-			<div id="cognomIn" style="position: absolute; left: 10px; top: 121px; width: 148px;">Alonso</div>
-		</div>
-		<div class="cami"> Camí recorregut </div>
-		</div>
+		<div id="tot" style="position:absolute; left:280px;">
+   		  <div style="background-color: coral; padding: 2em; margin-bottom: 2em; font-size: x-large; width: 320px; height: 200px; position: absolute; left: -130px; top: 131px;">Comencem</div>
+			<div class="usuari">
+				<div style="position: absolute; left: 10px; top: 10px; height: 64px;"><img src="jordi.png" style="width:80px;"/></div>
+				<div id="nomIn" style="position: absolute; left: 10px; top: 98px; width: 148px;">...</div>
+				<div id="cognomIn" style="position: absolute; left: 10px; top: 121px; width: 148px;">...</div>
+			</div>
+			<div class="cami">Camí recorregut</div>
     <script>
         let missatges = [
             { text: 'FUNCIONA?'}, 
@@ -98,6 +88,17 @@
         text.textContent = missatges[pagina].text;
         let nPag = document.querySelector('#numPag');
         nPag.textContent = `Pàgina ${pagina}`;
+		
+		function actualitzaNom() {
+			let nm=document.querySelector('#nom').value;
+			let cn=document.querySelector('#cognom').value;
+			let fo=document.querySelector('#foto').value;
+			let text1 = document.querySelector('#nomIn');
+			text1.textContent = nm;
+			let text2 = document.querySelector('#cognomIn');
+			text2.textContent = cn;
+			alert(`Això he recollit ${nm} ${cn} ${fo}`);
+		}
 
         function ferSi() {
             //pagina = pagina + 1;
@@ -187,10 +188,10 @@
         }
         document.write(missatges[4].text); //Cap problema
     </script>
-    <div id="butons" style="text-align: center; position: absolute; left: 228px; top: 432px; width: 416px; height: 38px;">
-        <button onclick="ferSi();" style="padding: 10px 50px; position: absolute; left: 0px; top: 0px;">SI</button>
-        <button onclick="ferNo();" style="padding: 10px 50px; position: absolute; left: 296px; top: 0px;">NO</button>
-    </div>
+    	<div id="butons" style="text-align: center; position: absolute; left: -130px; top: 433px; width: 416px; height: 38px;">
+        	<button onclick="ferSi();" style="padding: 10px 50px; position: absolute; left: 0px; top: 0px;">SI</button>
+        	<button onclick="ferNo();" style="padding: 10px 50px; position: absolute; left: 295px; top: 0px;">NO</button>
+   	 	</div>
+	</div>
 </body>
-
 </html>
