@@ -6,6 +6,7 @@
         body {
             max-width: 30em;
             margin: 0 auto;
+			font-family: arial;
         }
         
         .text {
@@ -23,9 +24,9 @@
     background-color: gray;
     padding: 1em;
     margin-bottom: 1em;
-    font-size: x-large;
-    width: 120px;
-    height: 103px;
+    font-size: large;
+    width: 132px;
+    height: 115px;
     position: absolute;
     left: 655px;
     top: 129px;
@@ -45,23 +46,33 @@
 </head>
 
 <body>
-    <header>
-        <h1>Esculleix la teva pr&ograve;pia aventura</h1>
-    </header>
+    <div style="position: absolute; top: 20px; left: 259px; width: 538px; height: 47px;">
+        <h1>Esculleix la teva pr&ograve;pia aventura!</h1>
+    </div>
 	<header>
       <div id="numPag" style="text-align: right; position: absolute; left: 562px; top: 107px;">
                 P&agrave;gina
             </div>
-		<div style="position: absolute; left: 1019px; top: 22px;">Login</div>
-    </header>
+		<div style="position: absolute; left: 862px; top: 30px; width: 210px; height: 50px;">
+			<form>
+				<label><strong>LOGIN</strong></label><br/><br/>
+  				<label for="nom">Nom:</label><br/>
+ 				<input type="text" id="nom" name="nom"/><br/>
+  				<label for="cognom">Cognom:</label><br/>
+  				<input type="text" id="cognom" name="cognom"/><br/>
+				<label for="foto">Foto:</label><br/>
+  				<input type="text" id="foto" name="foto"/>
+			</form>
+		</div>
+</header>
 		<div>
         <div class="text">
             Comencem
         </div>
 		<div class="usuari"> 
-			<div style="position: absolute; left: 10px; top: 10px; height: 64px;">FOTO</div>
-			<div style="position: absolute; left: 10px; top: 79px; width: 148px;">Nom</div>
-			<div style="position: absolute; left: 10px; top: 112px; width: 148px;">Cognom</div>
+			<div style="position: absolute; left: 10px; top: 10px; height: 64px;"><img src="jordi.png" style="width:80px;"/></div>
+			<div id="nomIn" style="position: absolute; left: 10px; top: 98px; width: 148px;"></div>
+			<div id="cognomIn" style="position: absolute; left: 10px; top: 121px; width: 148px;">Alonso</div>
 		</div>
 		<div class="cami"> Camí recorregut </div>
 		</div>
