@@ -9,10 +9,37 @@
         }
         
         .text {
-            background-color: coral;
-            padding: 2em;
-            margin-bottom: 2em;
-            font-size: x-large;
+    background-color: coral;
+    padding: 2em;
+    margin-bottom: 2em;
+    font-size: x-large;
+    width: 320px;
+    height: 200px;
+    position: absolute;
+    left: 229px;
+    top: 127px;
+        }
+		.usuari {
+    background-color: gray;
+    padding: 1em;
+    margin-bottom: 1em;
+    font-size: x-large;
+    width: 120px;
+    height: 103px;
+    position: absolute;
+    left: 655px;
+    top: 129px;
+        }
+		.cami {
+    background-color: gray;
+    padding: 1em;
+    margin-bottom: 1em;
+    font-size: x-large;
+    width: 120px;
+    height: 86px;
+    position: absolute;
+    left: 655px;
+    top: 289px;
         }
     </style>
 </head>
@@ -21,16 +48,23 @@
     <header>
         <h1>Esculleix la teva pr&ograve;pia aventura</h1>
     </header>
-    <main>
-        <header>
-            <div id="numPag" style="text-align:right;">
+	<header>
+      <div id="numPag" style="text-align: right; position: absolute; left: 562px; top: 107px;">
                 P&agrave;gina
             </div>
-        </header>
-        <section class="text">
+		<div style="position: absolute; left: 1019px; top: 22px;">Login</div>
+    </header>
+		<div>
+        <div class="text">
             Comencem
-        </section>
-    </main>
+        </div>
+		<div class="usuari"> 
+			<div style="position: absolute; left: 10px; top: 10px; height: 64px;">FOTO</div>
+			<div style="position: absolute; left: 10px; top: 79px; width: 148px;">Nom</div>
+			<div style="position: absolute; left: 10px; top: 112px; width: 148px;">Cognom</div>
+		</div>
+		<div class="cami"> Camí recorregut </div>
+		</div>
     <script>
         let missatges = [
             { text: 'FUNCIONA?'}, 
@@ -142,10 +176,10 @@
         }
         document.write(missatges[4].text); //Cap problema
     </script>
-    <footer style="text-align:center;">
-        <button onclick="ferSi();"><div style="width:32px; height:18px; background:red; padding:15px;">SI</button></a>
-        <button onclick="ferNo();"><div style="width:32px; height:18px; background:blue; padding:15px;">NO</button></a>
-    </footer>
+    <div id="butons" style="text-align: center; position: absolute; left: 228px; top: 432px; width: 416px; height: 38px;">
+        <button onclick="ferSi();" style="padding: 10px 50px; position: absolute; left: 0px; top: 0px;">SI</button>
+        <button onclick="ferNo();" style="padding: 10px 50px; position: absolute; left: 296px; top: 0px;">NO</button>
+    </div>
 </body>
 
 </html>
