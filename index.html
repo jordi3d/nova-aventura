@@ -44,22 +44,22 @@
             P&agrave;gina:
         </div>
         <div style="position: absolute; left: 806px; top: 23px; width: 266px; height: 50px;">
-            <form onSubmit="actualitzaNom();">
+            <form>
                 <label><strong>LOGIN</strong></label><br/><br/>
                 <label for="nom">Nom:</label><br/>
-                <input type="text" id="nom" name="nom" /><br/>
+                <input type="text" id="nom" name="nom" placeholder="Nom"/><br/>
                 <label for="cognom">Cognom:</label><br/>
-                <input type="text" id="cognom" name="cognom" /><br/>
+                <input type="text" id="cognom" name="cognom" placeholder="Cognom"/><br/>
                 <label for="foto">Foto:</label><br/>
-                <input type="file" id="foto" name="foto" /><br/><br/>
-                <input type="submit" value="Confirmar" />
+                <input type="file" id="foto" name="foto"/><br/><br/>
             </form>
+			<button onclick="actualitzaNom();">Confirmar</button>
         </div>
     </header>
     <div id="tot" style="position:absolute; left:280px;">
         <div style="background-color: coral; padding: 2em; margin-bottom: 2em; font-size: x-large; width: 320px; height: 200px; position: absolute; left: -130px; top: 131px;">Comencem</div>
         <div class="usuari">
-            <div style="position: absolute; left: 10px; top: 10px; height: 64px;"><img src="jordi.png" style="width:80px;" /></div>
+            <div style="position: absolute; left: 10px; top: 10px; height: 64px;"><img id="fotIn" src="" style="width:80px;" /></div>
             <div id="nomIn" style="position: absolute; left: 10px; top: 98px; width: 148px;">...</div>
             <div id="cognomIn" style="position: absolute; left: 10px; top: 121px; width: 148px;">...</div>
         </div>
@@ -105,7 +105,9 @@
                 text1.textContent = nm;
                 let text2 = document.querySelector('#cognomIn');
                 text2.textContent = cn;
-                //alert(`Això he recollit ${nm} ${cn} ${fo}`);
+				let path1 = document.querySelector('#fotIn');
+                path1.src = fo;
+                //alert(`Això he recollit ${fo} ${path1}`);
             }
 
             function ferSi() {
