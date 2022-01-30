@@ -115,8 +115,15 @@ let estatSemafor = new Automat({
 
         llensaho: {
             timeout: {
-                a: "funciona",
-                accions: ["comptaFunciona"]
+                a: "final",
+                accions: ["comptaFinal"]
+            }
+        },
+
+        final: {
+            timeout: {
+                a: "final",
+                accions: [""]
             }
         }
 
@@ -232,6 +239,18 @@ let estatSemafor = new Automat({
             setTimeout(() => {
                 this.emit("timeout")
             }, 2000)
+        },
+        comptaFinal: function() {
+            let text = document.getElementById('missatge_estat')
+            text.innerHTML = '<p id="missatge_estat">FINS A LA PROPERA!</p>'
+            let text2 = document.getElementById('caminet')
+            caminet.push("FINAL!")
+            text2.innerHTML = `<p id="caminet">[ ${caminet} ]</p>`
+            setTimeout(() => {
+                this.emit("timeout")
+            }, 2000)
+            throw new Error()
+                //return process.exit(1)
         }
     }
 })
