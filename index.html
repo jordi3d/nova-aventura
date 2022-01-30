@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<html>
 <head>
     <title>La teva aventura</title>
     <style>
@@ -8,42 +8,116 @@
             margin: 0 auto;
             font-family: arial;
         }
+
+        .credencials {
+            position: absolute; 
+            background: lightgray; 
+            padding: 1em; 
+            left: 806px; 
+            top: 23px; 
+            width: 222px; 
+            height: 192px;
+        }
+
+        .nomjoc{
+            position: absolute; 
+            top: 29px; 
+            left: 176px; 
+            width: 538px; 
+            height: 47px;
+        }
+
+        .pagina {
+            background-color: coral; 
+            padding: 2em; 
+            margin-bottom: 2em; 
+            font-size: x-large; 
+            width: 320px; 
+            height: 200px; 
+            position: absolute; 
+            left: -130px; 
+            top: 131px;
+        }
         
         .usuari {
-    background-color: gray;
-    padding: 1em;
-    margin-bottom: 1em;
-    font-size: large;
-    width: 132px;
-    height: 115px;
-    position: absolute;
-    left: 293px;
-    top: 131px;
+            background-color: gray;
+            padding: 1em;
+            margin-bottom: 1em;
+            font-size: large;
+            width: 132px;
+            height: 115px;
+            position: absolute;
+            left: 293px;
+            top: 131px;
         }
         
         .cami {
             background-color: gray;
             padding: 1em;
             margin-bottom: 1em;
-            font-size: x-large;
-            width: 120px;
-            height: 86px;
+            font-size: x-small;
+            width: 148px;
+            height: 115px;
             position: absolute;
             left: 293px;
             top: 291px;
         }
+
+        .botons {
+            text-align: center; 
+            position: absolute; 
+            margin-bottom: 40px;
+            left: -130px; 
+            top: 433px; 
+            width: 416px; 
+            height: 38px;
+        }
+
+        #botosi {
+            padding: 10px 50px; 
+            position: absolute; 
+            left: 0px; 
+            top: 0px;
+        }
+
+        #botono {
+            padding: 10px 50px; 
+            position: absolute; 
+            left: 291px; 
+            top: 0px;
+        }
+
+        #fotIn {
+            position: absolute; 
+            left: 10px; 
+            top: 10px;     
+            height: 80px;
+            width: 80px;
+        }
+
+        #nomIn {
+            position: absolute; 
+            left: 10px; 
+            top: 98px; 
+            width: 148px;
+        }
+
+        #cognomIn {
+            position: absolute; 
+            left: 10px; 
+            top: 121px; 
+            width: 148px;
+        }
+
     </style>
 </head>
 
 <body>
-    <div style="position: absolute; top: 29px; left: 176px; width: 538px; height: 47px;">
-        <h1>Esculleix la teva pr&ograve;pia aventura!</h1>
+    <div class="nomjoc">
+        <h1>Escull la teva pr&ograve;pia aventura!</h1>
     </div>
     <header>
-        <div id="numPag" style="text-align: right; position: absolute; left: 331px; top: 442px;">
-            P&agrave;gina:
-        </div>
-        <div style="position: absolute; left: 806px; top: 23px; width: 266px; height: 50px;">
+        <div class="credencials">
             <form>
                 <label><strong>LOGIN</strong></label><br/><br/>
                 <label for="nom">Nom:</label><br/>
@@ -53,156 +127,34 @@
                 <label for="foto">Foto:</label><br/>
                 <input type="file" id="foto" name="foto"/><br/><br/>
             </form>
-			<button onclick="actualitzaNom();">Confirmar</button>
+			<button onclick="javascript:actualitzaNom()">Confirmar</button>
         </div>
     </header>
-    <div id="tot" style="position:absolute; left:280px;">
-        <div style="background-color: coral; padding: 2em; margin-bottom: 2em; font-size: x-large; width: 320px; height: 200px; position: absolute; left: -130px; top: 131px;">Comencem</div>
-        <div class="usuari">
-            <div style="position: absolute; left: 10px; top: 10px; height: 64px;"><img id="fotIn" src="" style="width:80px;" /></div>
-            <div id="nomIn" style="position: absolute; left: 10px; top: 98px; width: 148px;">...</div>
-            <div id="cognomIn" style="position: absolute; left: 10px; top: 121px; width: 148px;">...</div>
+    <section>
+        <div id="tot" style="position:absolute; left:280px;">
+            <div class="pagina">
+                <p id="missatge_estat">Comencem</p>
+            </div>
+            <div class="usuari">
+                <img id="fotIn" src="https://via.placeholder.com/80"/>
+                <div id="nomIn">...</div>
+                <div id="cognomIn">...</div>
+            </div>
+            <div class="cami">
+                <p id="caminet">Camí recorregut</p>
+            </div>
+
+            <script script type="text/javascript" src="mef.js">//Incloure Autòmat fet en JS
+            </script>
+
+            <div class="botons">
+                <button onclick="ferSi();" id="botosi">SI</button>
+                <button onclick="ferNo();" id="botono">NO</button>
+            </div>
         </div>
-        <div class="cami">Camí recorregut</div>
-        <script>
-            let missatges = [{
-                text: 'FUNCIONA?'
-            }, {
-                text: 'NO HO TOQUIS!'
-            }, {
-                text: 'HO HAS TOCAT?'
-            }, {
-                text: "L'HAS CAGAT"
-            }, {
-                text: 'CAP PROBLEMA'
-            }, {
-                text: 'HO SAP ALGÚ?'
-            }, {
-                text: "ENS DONARÀ PROBLEMES?"
-            }, {
-                text: "AMAGA-HO"
-            }, {
-                text: "BURRO!"
-            }, {
-                text: "POTS DONAR LA CULPA A UN ALTRE?"
-            }, {
-                text: "LLENÇA-HO"
-            }];
-            let i = 0;
-            let continuar = "";
-
-            let pagina = 0;
-            let text = document.querySelector('.text');
-            text.textContent = missatges[pagina].text;
-            let nPag = document.querySelector('#numPag');
-            nPag.textContent = `Pàgina ${pagina}`;
-
-            function actualitzaNom() {
-                let nm = document.querySelector('#nom').value;
-                let cn = document.querySelector('#cognom').value;
-                let fo = document.querySelector('#foto').value;
-                let text1 = document.querySelector('#nomIn');
-                text1.textContent = nm;
-                let text2 = document.querySelector('#cognomIn');
-                text2.textContent = cn;
-				let path1 = document.querySelector('#fotIn');
-                path1.src = fo;
-                //alert(`Això he recollit ${fo} ${path1}`);
-            }
-
-            function ferSi() {
-                //pagina = pagina + 1;
-                nPag.textContent = `Pàgina ${pagina}`;
-                text.textContent = missatges[pagina].text;
-                return "s";
-            }
-
-            function ferNo() {
-                //pagina = pagina - 1;
-                nPag.textContent = `Pàgina ${pagina}`;
-                text.textContent = missatges[pagina].text;
-                return "n";
-            }
-
-            function si_no() {
-                /*if (pagina === 0) {
-                    return prompt("Vols jugar? [s/n]");
-                }
-                return prompt("[s/n]");*/
-                return "n";
-            }
-
-            function check_sn() {
-                while (true) {
-                    let cont2 = si_no();
-                    if (cont2 !== "s" && cont2 !== "n")
-                        alert("Respon amb s/n");
-                    else
-                        return cont2;
-                }
-            }
-
-            document.write(missatges[0].text); //Funciona
-
-            while (true) {
-                pagina = i;
-                if (i !== 4) continuar = ferSi(); //check_sn(); //evitar repetir missatge si i === 4
-                if (i === 0) { //funciona?
-                    if (continuar === "s") {
-                        document.write(missatges[1].text); //No ho toquis
-                        break;
-                    } else {
-                        document.write(missatges[1].text); //No ho toquis
-                        i = 1;
-                    }
-                }
-                if (i === 1) { //ho has tocat?
-                    let continuar = ferSi(); //check_sn();
-                    if (continuar === "s") {
-                        document.write(missatges[8].text); //Burro!
-                        i = 3;
-                    } else {
-                        document.write(missatges[6].text); //Ens donarà problemes?
-                        i = 2;
-                    }
-                }
-                if (i === 2) { //Ens donarà problemes?
-                    let continuar = ferSi(); //check_sn();
-                    if (continuar === "s") {
-                        document.write(missatges[3].text); //L'has cagat
-                        i = 4;
-                    } else {
-                        document.write(missatges[10].text); //Llença-ho
-                        break;
-                    }
-                }
-                if (i === 3) { //Ho sap algú?
-                    document.write(missatges[5].text); //Ho sap algú?
-                    let continuar = ferNo(); //check_sn();
-                    if (continuar === "s") {
-                        document.write(missatges[3].text); //L'has cagat
-                        i = 4;
-                    } else {
-                        document.write(missatges[7].text); //Amaga-ho
-                        break;
-                    }
-                }
-                if (i === 4) { //Pots culpar a algú?
-                    document.write(missatges[9].text); //Pots donar la culpa un altre?
-                    let continuar = ferSi(); //check_sn();
-                    if (continuar === "s")
-                        break;
-                    else
-                        document.write(missatges[3].text); //L'has cagat
-                }
-            }
-            document.write(missatges[4].text); //Cap problema
-        </script>
-        <div id="butons" style="text-align: center; position: absolute; left: -130px; top: 433px; width: 416px; height: 38px;">
-            <button onclick="ferSi();" style="padding: 10px 50px; position: absolute; left: 0px; top: 0px;">SI</button>
-            <button onclick="ferNo();" style="padding: 10px 50px; position: absolute; left: 295px; top: 0px;">NO</button>
-        </div>
-    </div>
+    </section>
+    <footer>
+        <div style="position:absolute; top:100%; left:20%;">&copy; 2022 Jordi Alonso</div>
+    </footer>
 </body>
-
 </html>
