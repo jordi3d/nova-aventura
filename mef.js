@@ -132,6 +132,16 @@ let estatAutomat = new Automat({
 
     accions: {
         comptaFunciona: function() {
+            if (typeof(resposta) !== "undefined") {
+                resposta = check_sn("Funciona? ")
+                if (resposta === 's')
+                ;
+                else
+                ;
+                console.log(`Funciona? ${resposta}`)
+            } else {
+                let resposta = ''
+            }
             let text = document.getElementById('missatge_estat')
             text.innerHTML = '<p id="missatge_estat">Funciona?</p>'
             let text2 = document.getElementById('caminet')
@@ -140,14 +150,6 @@ let estatAutomat = new Automat({
             setTimeout(() => {
                 this.emit("timeout")
             }, 2000)
-            if (typeof(resposta) === "undefined") {
-                let resposta = check_sn()
-                if (resposta === 's')
-                ;
-                else
-                ;
-                console.log(`Funciona! ${resposta}`)
-            }
         },
         comptaNHT: function() {
             let text = document.getElementById('missatge_estat')
@@ -158,14 +160,14 @@ let estatAutomat = new Automat({
             setTimeout(() => {
                 this.emit("timeout")
             }, 2000)
-            let resposta = check_sn()
+            console.log(`No ho toquis!`)
+        },
+        comptaHHT: function() {
+            let resposta = check_sn("")
             if (resposta === 's')
             ;
             else
             ;
-            console.log(`No ho toquis! ${resposta}`)
-        },
-        comptaHHT: function() {
             let text = document.getElementById('missatge_estat')
             text.innerHTML = '<p id="missatge_estat">Ho has tocat?</p>'
             let text2 = document.getElementById('caminet')
@@ -174,11 +176,6 @@ let estatAutomat = new Automat({
             setTimeout(() => {
                 this.emit("timeout")
             }, 2000)
-            let resposta = check_sn()
-            if (resposta === 's')
-            ;
-            else
-            ;
             console.log(`Ho has tocat? ${resposta}`)
         },
         comptaLHC: function() {
@@ -190,6 +187,7 @@ let estatAutomat = new Automat({
             setTimeout(() => {
                 this.emit("timeout")
             }, 2000)
+            console.log(`L'has cagat!`)
         },
         comptaNP: function() {
             let text = document.getElementById('missatge_estat')
@@ -200,8 +198,14 @@ let estatAutomat = new Automat({
             setTimeout(() => {
                 this.emit("timeout")
             }, 2000)
+            console.log(`Cap problema!`)
         },
         comptaHSA: function() {
+            let resposta = check_sn("")
+            if (resposta === 's')
+            ;
+            else
+            ;
             let text = document.getElementById('missatge_estat')
             text.innerHTML = '<p id="missatge_estat">Ho sap alg&uacute;?</p>'
             let text2 = document.getElementById('caminet')
@@ -210,8 +214,14 @@ let estatAutomat = new Automat({
             setTimeout(() => {
                 this.emit("timeout")
             }, 2000)
+            console.log(`Ho sap algú? ${resposta}`)
         },
         comptaEDP: function() {
+            let resposta = check_sn("")
+            if (resposta === 's')
+            ;
+            else
+            ;
             let text = document.getElementById('missatge_estat')
             text.innerHTML = '<p id="missatge_estat">Ens donar&agrave; problemes?</p>'
             let text2 = document.getElementById('caminet')
@@ -220,6 +230,7 @@ let estatAutomat = new Automat({
             setTimeout(() => {
                 this.emit("timeout")
             }, 2000)
+            console.log(`Ens donarà problemes? ${resposta}`)
         },
         comptaAH: function() {
             let text = document.getElementById('missatge_estat')
@@ -230,6 +241,7 @@ let estatAutomat = new Automat({
             setTimeout(() => {
                 this.emit("timeout")
             }, 2000)
+            console.log(`Amaga-ho!`)
         },
         comptaB: function() {
             let text = document.getElementById('missatge_estat')
@@ -240,26 +252,34 @@ let estatAutomat = new Automat({
             setTimeout(() => {
                 this.emit("timeout")
             }, 2000)
+            console.log(`Burro!`)
         },
         comptaPDLCAA: function() {
+            let resposta = check_sn("")
+            if (resposta === 's')
+            ;
+            else
+            ;
             let text = document.getElementById('missatge_estat')
             text.innerHTML = '<p id="missatge_estat">Pots donar la culpa a alg&uacute;?</p>'
             let text2 = document.getElementById('caminet')
-            caminet.push("Pots donar la culpa a alg&uacute;?")
+            caminet.push("Pots donar la culpa a algú altre?")
             text2.innerHTML = `<p id="caminet">[ ${caminet} ]</p>`
             setTimeout(() => {
                 this.emit("timeout")
             }, 2000)
+            console.log(`Pots donar la culpa a algú altre? ${resposta}`)
         },
         comptaLH: function() {
             let text = document.getElementById('missatge_estat')
             text.innerHTML = '<p id="missatge_estat">Llen&ccedil;a-ho!</p>'
             let text2 = document.getElementById('caminet')
-            caminet.push("Llen&ccedil;a-ho!")
+            caminet.push("Llença-ho!")
             text2.innerHTML = `<p id="caminet">[ ${caminet} ]</p>`
             setTimeout(() => {
                 this.emit("timeout")
             }, 2000)
+            console.log(`Llença-ho!`)
         },
         comptaFinal: function() {
             let text = document.getElementById('missatge_estat')
@@ -270,6 +290,7 @@ let estatAutomat = new Automat({
             setTimeout(() => {
                 this.emit("timeout")
             }, 2000)
+            console.log(`Fins a la propera!`)
             throw new Error(0)
         }
     }

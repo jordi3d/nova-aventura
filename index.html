@@ -111,9 +111,9 @@
     <script>
         let caminet = []
 
-        function check_sn() {
+        function check_sn(str) {
             while (true) {
-                let cont2 = prompt("[s/n]").toLowerCase()
+                let cont2 = prompt(`${str}[s/n]`).toLowerCase()
                 if (cont2 !== "s" && cont2 !== "n")
                     alert("Respon amb s/n")
                 else
