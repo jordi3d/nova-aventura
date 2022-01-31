@@ -9,106 +9,102 @@
             font-family: arial;
         }
 
-        .credencials {
+        #credencials {
             position: absolute; 
             background: lightgray; 
-            padding: 1em; 
-            left: 806px; 
-            top: 23px; 
-            width: 222px; 
-            height: 192px;
+            padding: 2em; 
+            margin-left: 5%;
+            top: 30%; 
+            width: 300px; 
+            height: 200px;
+            z-index: 1;
+            visibility: visible;
         }
 
-        .nomjoc{
-            position: absolute; 
-            top: 59px; 
-            left: 148px; 
+        #nomjoc{
+            position: absolute;
             width: 538px; 
             height: 47px;
+            top: -60px;
         }
 
-        .pagina {
+        #tot {
+            position:absolute;
+            opacity: 0.2;
+            left:25%;
+            margin-top:11%;
+        }
+
+        #pagina {
+            position: absolute;
             background-color: coral; 
             padding: 2em; 
-            margin-bottom: 2em; 
+            margin-left: 4%;
             font-size: x-large; 
             width: 320px; 
-            height: 200px; 
-            position: absolute; 
-            left: -130px; 
-            top: 131px;
+            height: 200px;
         }
         
-        .usuari {
-            background-color: gray;
-            padding: 1em;
-            margin-bottom: 1em;
-            font-size: large;
-            width: 132px;
-            height: 115px;
+        #usuari {
             position: absolute;
-            left: 293px;
-            top: 131px;
+            background-color: gray;
+            font-size: large;
+            width: 168px;
+            height: 152px;
+            left: 426px;
+        }
+
+        #fotIn {
+            position: absolute; 
+            margin-left: 10px; 
+            margin-top: 10px;   
+            height: 80px;
+            width: 80px;
+        }
+        #nomIn {
+            position: absolute; 
+            margin-left: 10px; 
+            margin-top: 98px; 
+            width: 148px;
+        }
+        #cognomIn {
+            position: absolute; 
+            margin-left: 10px; 
+            margin-top: 121px; 
+            width: 148px;
         }
         
-        .cami {
+        #cami {
+            position: absolute;
             background-color: gray;
             padding: 1em;
             margin-bottom: 1em;
             font-size: x-small;
             width: 148px;
             height: 115px;
-            position: absolute;
-            left: 293px;
-            top: 291px;
+            left: 426px;
+            top: 161px;
         }
 
-        .botons {
-            text-align: center; 
+        #botons {
             position: absolute; 
-            margin-bottom: 40px;
-            left: -130px; 
-            top: 433px; 
+            margin-left: 0px;
+            margin-top: 305px;
             width: 416px; 
             height: 38px;
         }
 
         #botosi {
-            padding: 10px 50px; 
             position: absolute; 
-            left: 0px; 
-            top: 0px;
+            margin-left: 0px; 
+            padding: 10px 50px; 
         }
 
         #botono {
+            position: absolute; 
+            margin-left: 291px; 
             padding: 10px 50px; 
-            position: absolute; 
-            left: 291px; 
-            top: 0px;
         }
-
-        #fotIn {
-            position: absolute; 
-            left: 10px; 
-            top: 10px;     
-            height: 80px;
-            width: 80px;
-        }
-
-        #nomIn {
-            position: absolute; 
-            left: 10px; 
-            top: 98px; 
-            width: 148px;
-        }
-
-        #cognomIn {
-            position: absolute; 
-            left: 10px; 
-            top: 121px; 
-            width: 148px;
-        }
-
     </style>
     <script type="text/javascript" src="mef.js"> //Inclou el codi de l'utòmat fet en JS
     </script>
@@ -121,6 +117,8 @@
             document.getElementById('fotIn').setAttribute('src',foto.value.split('\\').pop())
             document.getElementById('nomIn').innerHTML=nom.value
             document.getElementById('cognomIn').innerHTML=cognom.value
+            document.getElementById('credencials').style.visibility='hidden'
+            document.getElementById('tot').style.opacity = '1'
 
             estatAutomat.emit("engega") //engega l'autòmat
         }
@@ -128,11 +126,8 @@
 </head>
 
 <body>
-    <div class="nomjoc">
-        <h1>Escull la teva pr&ograve;pia aventura!</h1>
-    </div>
-    <header>
-        <div class="credencials">
+    <!--header-->
+        <div id="credencials">
             <form>
                 <label><strong>LOGIN</strong></label><br/><br/>
                 <label for="nom">Nom:</label><br/>
@@ -144,28 +139,32 @@
             </form>
 			<button onclick="javascript:fesLogin()">Confirmar</button>
         </div>
-    </header>
-    <section>
-        <div id="tot" style="position:absolute; left:280px;">
-            <div class="pagina">
+    <!--/header>
+    <section-->
+        <div id="tot">
+            <div id="nomjoc">
+                <h1>Escull la teva pr&ograve;pia aventura!</h1>
+            </div>
+            <div id="pagina">
                 <p id="missatge_estat">Comencem</p>
             </div>
-            <div class="usuari">
+            <div id="usuari">
                 <img id="fotIn" src="https://via.placeholder.com/80"/>
                 <div id="nomIn">...</div>
                 <div id="cognomIn">...</div>
             </div>
-            <div class="cami">
+            <div id="cami">
                 <p id="caminet">Camí recorregut</p>
             </div>
-            <div class="botons">
+            <div id="botons">
                 <button onclick="ferSi();" id="botosi">SI</button>
                 <button onclick="ferNo();" id="botono">NO</button>
             </div>
+
         </div>
-    </section>
+    <!--/section-->
     <footer>
-        <div style="position:absolute; top:100%; left:20%;">&copy; 2022 Jordi Alonso</div>
+        <div style="position:absolute; top:100%; left:36.5%;">&copy; 2022 Jordi Alonso</div>
     </footer>
 </body>
 </html>
