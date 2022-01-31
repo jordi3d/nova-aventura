@@ -33,7 +33,7 @@ let estatAutomat = new Automat({
     estatInicial: "inicial", // Estat Inicial
     estatFinal: "final", // Estat Final
 
-    // Tots els estats possibles. Descriu els esdevemniments per passar de l'estat actual al següent
+    // Tots els estats possibles. Descriu els esdeveniments per passar de l'estat actual al següent
     // i les accions que s'han de fer a partir d'aquest punt.
 
     estats: {
@@ -44,12 +44,6 @@ let estatAutomat = new Automat({
             }
         },
 
-        /*funciona: {
-            timeout: {
-                a: "nohotoquis",
-                accions: ["comptaNHT"]
-            }
-        },*/
         funciona: {
             funcionaSi: {
                 a: "nohotoquis",
@@ -61,59 +55,13 @@ let estatAutomat = new Automat({
             }
         },
 
-        /*
-        funcionaSi
-            NHT
-        funcionaNo
-            HHT
-        nohotoquis ++
-            CP
-        capproblema ++
-            Final
-        hohastocatSi
-            Burro
-        Burro        ++
-            HSA
-        alguhosapSi
-            LHC
-        alguhosapNo
-            AH        
-        potsculparSi
-            CP
-        potsculparNo
-            LHC
-        amagaho      ++
-            CP
-        hohastocatNo
-            EDP
-        ensdonaraproblemesSi
-            LHC
-        ensdonaraproblemesNo
-            LH
-        llencaho    ++
-            CP
-        lhascagat
-            PDLCA
-        */
-
-        /*nohotoquis: {
-            timeout: {
-                a: "hohastocat",
-                accions: ["comptaHHT"]
-            }
-        },*/
         nohotoquis: {
             timeout: {
                 a: "capproblema",
                 accions: ["comptaNP"]
             }
         },
-        /*hohastocat: {
-            timeout: {
-                a: "lhascagat",
-                accions: ["comptaLHC"]
-            }
-        },*/
+
         hohastocat: {
             hohastocatSi: {
                 a: "burro",
@@ -132,12 +80,6 @@ let estatAutomat = new Automat({
             }
         },
 
-        /*capproblema: {
-            timeout: {
-                a: "hosapalgu",
-                accions: ["comptaHSA"]
-            }
-        },*/
         capproblema: {
             timeout: {
                 a: "final",
@@ -145,12 +87,6 @@ let estatAutomat = new Automat({
             }
         },
 
-        /*hosapalgu: {
-            timeout: {
-                a: "ensdonaraproblemes",
-                accions: ["comptaEDP"]
-            }
-        },*/
         hosapalgu: {
             hosapalguSi: {
                 a: "ensdonaraproblemes",
@@ -162,12 +98,6 @@ let estatAutomat = new Automat({
             }
         },
 
-        /*ensdonaraproblemes: {
-            timeout: {
-                a: "amagaho",
-                accions: ["comptaAH"]
-            }
-        },*/
         ensdonaraproblemes: {
             ensdonaraproblemesSi: {
                 a: "lhascagat",
@@ -180,12 +110,6 @@ let estatAutomat = new Automat({
 
         },
 
-        /*amagaho: {
-            timeout: {
-                a: "burro",
-                accions: ["comptaB"]
-            }
-        },*/
         amagaho: {
             timeout: {
                 a: "capproblema",
@@ -193,12 +117,6 @@ let estatAutomat = new Automat({
             }
         },
 
-        /*burro: {
-            timeout: {
-                a: "potsdonarlaculpa",
-                accions: ["comptaPDLCAA"]
-            }
-        },*/
         burro: {
             timeout: {
                 a: "hosapalgu",
@@ -217,12 +135,6 @@ let estatAutomat = new Automat({
             }
         },
 
-        /*llensaho: {
-            timeout: {
-                a: "final",
-                accions: ["comptaFinal"]
-            }
-        },*/
         llensaho: {
             timeout: {
                 a: "capproblema",
@@ -246,9 +158,6 @@ let estatAutomat = new Automat({
             let text2 = document.getElementById('caminet')
             caminet.push("Funciona?")
             text2.innerHTML = `<p id="caminet">[ ${caminet} ]</p>`
-                /*setTimeout(() => {
-                    this.emit("timeout")
-                }, 2000)*/
             if (typeof(resposta) === "undefined") {
                 let resposta = check_sn("Funciona? ")
                 console.log(`Funciona? ${resposta}`)
