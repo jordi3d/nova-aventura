@@ -41,7 +41,7 @@ let estatAutomat = new Automat({
             engega: { // esdeveniment
                 a: "funciona", // a l'estat
                 accions: ["comptaFunciona"] // accions a fer
-            },
+            }
         },
 
         funciona: {
@@ -140,6 +140,14 @@ let estatAutomat = new Automat({
             setTimeout(() => {
                 this.emit("timeout")
             }, 2000)
+            if (typeof(resposta) === "undefined") {
+                let resposta = check_sn()
+                if (resposta === 's')
+                ;
+                else
+                ;
+                console.log(`Funciona! ${resposta}`)
+            }
         },
         comptaNHT: function() {
             let text = document.getElementById('missatge_estat')
@@ -150,6 +158,12 @@ let estatAutomat = new Automat({
             setTimeout(() => {
                 this.emit("timeout")
             }, 2000)
+            let resposta = check_sn()
+            if (resposta === 's')
+            ;
+            else
+            ;
+            console.log(`No ho toquis! ${resposta}`)
         },
         comptaHHT: function() {
             let text = document.getElementById('missatge_estat')
@@ -160,6 +174,12 @@ let estatAutomat = new Automat({
             setTimeout(() => {
                 this.emit("timeout")
             }, 2000)
+            let resposta = check_sn()
+            if (resposta === 's')
+            ;
+            else
+            ;
+            console.log(`Ho has tocat? ${resposta}`)
         },
         comptaLHC: function() {
             let text = document.getElementById('missatge_estat')
@@ -250,7 +270,7 @@ let estatAutomat = new Automat({
             setTimeout(() => {
                 this.emit("timeout")
             }, 2000)
-            throw new Error()
+            throw new Error(0)
         }
     }
 })

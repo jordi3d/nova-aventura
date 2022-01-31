@@ -15,7 +15,7 @@
             padding: 2em; 
             margin-left: 5%;
             top: 30%; 
-            width: 300px; 
+            width: 296px; 
             height: 200px;
             z-index: 1;
             visibility: visible;
@@ -130,7 +130,6 @@
             document.getElementById('cognomIn').innerHTML=cognom.value
             document.getElementById('credencials').style.visibility='hidden'
             document.getElementById('tot').style.opacity = '1'
-            console.log(check_sn())
 
             estatAutomat.emit("engega") //engega l'autòmat
         }
@@ -149,7 +148,7 @@
                 <label for="foto">Foto:</label><br/>
                 <input type="file" id="foto" name="foto"/><br/><br/>
             </form>
-			<button onclick="javascript:fesLogin()">Confirmar</button>
+			<button onclick="javascript:fesLogin()" style="width: 22em; height: 3em;">Confirmar</button>
         </div>
     <!--/header>
     <section-->
@@ -169,8 +168,8 @@
                 <p id="caminet">Camí recorregut</p>
             </div>
             <div id="botons">
-                <button onclick="ferSi();" id="botosi">SI</button>
-                <button onclick="ferNo();" id="botono">NO</button>
+                <button onclick="javascript:ferSi()" id="botosi">SI</button>
+                <button onclick="javascript:ferNo()" id="botono">NO</button>
             </div>
 
         </div>
