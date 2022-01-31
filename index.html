@@ -21,8 +21,8 @@
 
         .nomjoc{
             position: absolute; 
-            top: 29px; 
-            left: 176px; 
+            top: 59px; 
+            left: 148px; 
             width: 538px; 
             height: 47px;
         }
@@ -110,6 +110,27 @@
         }
 
     </style>
+    <script type="text/javascript" src="mef.js">//Incloure Autòmat fet en JS
+    </script>
+    <script>
+        let caminet = []
+        function stripTrailingSlash(str) {
+            if (str.substr(-1) === '/') {
+                return str.substr(0, str.length - 1)
+            }
+            return str
+        }
+        function actualitzaNom() {
+            let field1 = document.getElementById('fotIn').getAttribute('src')
+            let field2 = document.getElementById('nomIn')
+            let field3 = document.getElementById('cognomIn')
+            let field1_tmp= foto.value.split('\\').pop()
+            document.getElementById('fotIn').setAttribute('src',field1_tmp)
+            document.getElementById('nomIn').innerHTML=nom.value
+            document.getElementById('cognomIn').innerHTML=cognom.value
+            estatSemafor.emit("engega")
+        }
+    </script>
 </head>
 
 <body>
@@ -144,8 +165,12 @@
                 <p id="caminet">Camí recorregut</p>
             </div>
 
-            <script script type="text/javascript" src="mef.js">//Incloure Autòmat fet en JS
-            </script>
+ 
+ 
+ 
+ 
+ 
+ 
 
             <div class="botons">
                 <button onclick="ferSi();" id="botosi">SI</button>
