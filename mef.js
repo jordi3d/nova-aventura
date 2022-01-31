@@ -44,24 +44,82 @@ let estatAutomat = new Automat({
             }
         },
 
-        funciona: {
+        /*funciona: {
             timeout: {
                 a: "nohotoquis",
                 accions: ["comptaNHT"]
             }
-        },
-
-        nohotoquis: {
-            timeout: {
+        },*/
+        funciona: {
+            funcionaSi: {
+                a: "nohotoquis",
+                accions: ["comptaNHT"]
+            },
+            funcionaNo: {
                 a: "hohastocat",
                 accions: ["comptaHHT"]
             }
         },
 
-        hohastocat: {
+        /*
+        funcionaSi
+            NHT
+        funcionaNo
+            HHT
+        nohotoquis ++
+            CP
+        capproblema ++
+            Final
+        hohastocatSi
+            Burro
+        Burro        ++
+            HSA
+        alguhosapSi
+            LHC
+        alguhosapNo
+            AH        
+        potsculparSi
+            CP
+        potsculparNo
+            LHC
+        amagaho      ++
+            CP
+        hohastocatNo
+            EDP
+        ensdonaraproblemesSi
+            LHC
+        ensdonaraproblemesNo
+            LH
+        llencaho    ++
+            CP
+        */
+
+        /*nohotoquis: {
+            timeout: {
+                a: "hohastocat",
+                accions: ["comptaHHT"]
+            }
+        },*/
+        nohotoquis: {
+            timeout: {
+                a: "capproblema",
+                accions: ["comptaNP"]
+            }
+        },
+        /*hohastocat: {
             timeout: {
                 a: "lhascagat",
                 accions: ["comptaLHC"]
+            }
+        },*/
+        hohastocat: {
+            hohastocatSi: {
+                a: "burro",
+                accions: ["comptaB"]
+            },
+            hohastocatNo: {
+                a: "ensdonaraproblemes",
+                accions: ["comptaEDP"]
             }
         },
 
@@ -72,18 +130,34 @@ let estatAutomat = new Automat({
             }
         },
 
-        capproblema: {
+        /*capproblema: {
             timeout: {
                 a: "hosapalgu",
                 accions: ["comptaHSA"]
             }
+        },*/
+        capproblema: {
+            timeout: {
+                a: "final",
+                accions: ["comptaFinal"]
+            }
         },
 
-        hosapalgu: {
+        /*hosapalgu: {
             timeout: {
                 a: "ensdonaraproblemes",
                 accions: ["comptaEDP"]
             }
+        },*/
+        hosapalgu: {
+            hosapalguSi: {
+                a: "ensdonaraproblemes",
+                accions: ["comptaEDP"]
+            },
+            hosapalguNo: {
+                a: "ensdonaraproblemes",
+                accions: ["comptaEDP"]
+            },
         },
 
         ensdonaraproblemes: {
@@ -93,17 +167,29 @@ let estatAutomat = new Automat({
             }
         },
 
-        amagaho: {
+        /*amagaho: {
             timeout: {
                 a: "burro",
                 accions: ["comptaB"]
             }
+        },*/
+        amagaho: {
+            timeout: {
+                a: "capproblema",
+                accions: ["comptaNP"]
+            }
         },
 
-        burro: {
+        /*burro: {
             timeout: {
                 a: "potsdonarlaculpa",
                 accions: ["comptaPDLCAA"]
+            }
+        },*/
+        burro: {
+            timeout: {
+                a: "hosapalgu",
+                accions: ["comptaHSA"]
             }
         },
 
@@ -114,10 +200,16 @@ let estatAutomat = new Automat({
             }
         },
 
-        llensaho: {
+        /*llensaho: {
             timeout: {
                 a: "final",
                 accions: ["comptaFinal"]
+            }
+        },*/
+        llensaho: {
+            timeout: {
+                a: "capproblema",
+                accions: ["comptaNP"]
             }
         },
 
@@ -135,19 +227,19 @@ let estatAutomat = new Automat({
             if (typeof(resposta) === "undefined") {
                 let resposta = check_sn("Funciona? ")
                 if (resposta === 's')
-                ;
+                    this.emit("funcionaSi");
                 else
-                ;
+                    this.emit("funcionaNo");
                 console.log(`Funciona? ${resposta}`)
             }
             let text = document.getElementById('missatge_estat')
             text.innerHTML = '<p id="missatge_estat">Funciona?</p>'
             let text2 = document.getElementById('caminet')
-            caminet.push("funciona")
+            caminet.push("Funciona?")
             text2.innerHTML = `<p id="caminet">[ ${caminet} ]</p>`
-            setTimeout(() => {
-                this.emit("timeout")
-            }, 50)
+                /*setTimeout(() => {
+                    this.emit("timeout")
+                }, 50)*/
         },
         comptaNHT: function() {
             let text = document.getElementById('missatge_estat')
@@ -163,17 +255,18 @@ let estatAutomat = new Automat({
         comptaHHT: function() {
             let resposta = check_sn("Ho has tocat? ")
             if (resposta === 's')
-            ;
+                this.emit("hohastocatSi");
             else
-            ;
+                this.emit("hohastocatNo");
+            console.log(`Ho has tocat? ${resposta}`)
             let text = document.getElementById('missatge_estat')
             text.innerHTML = '<p id="missatge_estat">Ho has tocat?</p>'
             let text2 = document.getElementById('caminet')
             caminet.push("Ho has tocat?")
             text2.innerHTML = `<p id="caminet">[ ${caminet} ]</p>`
-            setTimeout(() => {
-                this.emit("timeout")
-            }, 50)
+                /*setTimeout(() => {
+                    this.emit("timeout")
+                }, 50)*/
             console.log(`Ho has tocat? ${resposta}`)
         },
         comptaLHC: function() {
