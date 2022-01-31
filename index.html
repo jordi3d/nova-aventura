@@ -30,9 +30,9 @@
 
         #tot {
             position:absolute;
-            opacity: 0.2;
+            opacity: 0.1;
             left:25%;
-            margin-top:11%;
+            margin-top:12%;
         }
 
         #pagina {
@@ -110,6 +110,17 @@
     </script>
     <script>
         let caminet = []
+
+        function check_sn() {
+            while (true) {
+                let cont2 = prompt("[s/n]").toLowerCase()
+                if (cont2 !== "s" && cont2 !== "n")
+                    alert("Respon amb s/n")
+                else
+                    return cont2
+            }
+        }
+        
         function fesLogin() {
             let field1 = document.getElementById('fotIn').getAttribute('src')
             let field2 = document.getElementById('nomIn')
@@ -119,6 +130,7 @@
             document.getElementById('cognomIn').innerHTML=cognom.value
             document.getElementById('credencials').style.visibility='hidden'
             document.getElementById('tot').style.opacity = '1'
+            console.log(check_sn())
 
             estatAutomat.emit("engega") //engega l'autòmat
         }
