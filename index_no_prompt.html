@@ -113,19 +113,27 @@
 
         let caminet = []
 
-        /*function check_sn(str) {
-            document.getElementById('botons').style.visibility='visible'
-            while (str !== "s" && str !== "n") {
-                setTimeout(() => {
-                    console.log("waiting for click")
-                }, 2000)
-            }
-            document.getElementById('botons').style.visibility='hidden'
-            alert("Sortint")
-            return str
-        }*/
-
         function check_sn(str) {
+            document.getElementById('botons').setAttribute('visibility','visible')
+            let si = document.getElementById('botosi');
+            let no = document.getElementById('botono');
+            console.log("HOLA")
+            console.log(document.getElementById('botons').style.visibility)
+            while (!si.clicked && !no.clicked) {
+                console.log(`Waiting...${str}`)
+              /*  setTimeout(() => {
+                    console.log("waiting...")
+                }, 2000)*/
+            }
+            document.getElementById('botons').setAttribute('visibility','hidden')
+            console.log("Fumata")
+            if (si.clicked)
+                return 's'
+            else
+                return 'n'
+        }
+
+        /*function check_sn(str) {
             while (true) {
                 let cont2 = prompt(`${str}[s/n]`).toLowerCase()
                 if (cont2 !== "s" && cont2 !== "n")
@@ -133,7 +141,7 @@
                 else
                     return cont2
             }
-        }
+        }*/
         
         function fesLogin() {
             let field1 = document.getElementById('fotIn').getAttribute('src')
