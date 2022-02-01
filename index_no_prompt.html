@@ -1,203 +1,219 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>La teva aventura</title>
     <style>
-        body {
-            max-width: 30em;
-            margin: 0 auto;
-            font-family: arial;
-        }
+      body {
+        max-width: 30em;
+        margin: 0 auto;
+        font-family: arial;
+      }
 
-        #credencials {
-            position: absolute; 
-            background: lightgray; 
-            padding: 2em; 
-            margin-left: 5%;
-            top: 30%; 
-            width: 296px; 
-            height: 200px;
-            z-index: 1;
-            visibility: visible;
-        }
+      #credencials {
+        position: absolute;
+        background: lightgray;
+        padding: 2em;
+        margin-left: 5%;
+        top: 30%;
+        width: 296px;
+        height: 200px;
+        z-index: 1;
+        visibility: visible;
+      }
 
-        #nomjoc{
-            position: absolute;
-            width: 538px; 
-            height: 47px;
-            top: -60px;
-        }
+      #nomjoc {
+        position: absolute;
+        width: 538px;
+        height: 47px;
+        top: -60px;
+      }
 
-        #tot {
-            position:absolute;
-            opacity: 0.1;
-            left:25%;
-            margin-top:12%;
-        }
+      #tot {
+        position: absolute;
+        opacity: 0.1;
+        left: 25%;
+        margin-top: 12%;
+      }
 
-        #pagina {
-            position: absolute;
-            background-color: coral; 
-            padding: 2em; 
-            margin-left: 4%;
-            font-size: x-large; 
-            width: 320px; 
-            height: 200px;
-        }
-        
-        #usuari {
-            position: absolute;
-            background-color: gray;
-            font-size: large;
-            width: 168px;
-            height: 152px;
-            left: 426px;
-        }
+      #pagina {
+        position: absolute;
+        background-color: coral;
+        padding: 2em;
+        margin-left: 4%;
+        font-size: x-large;
+        width: 320px;
+        height: 200px;
+      }
 
-        #fotIn {
-            position: absolute; 
-            margin-left: 10px; 
-            margin-top: 10px;   
-            height: 80px;
-            width: 80px;
-        }
-        #nomIn {
-            position: absolute; 
-            margin-left: 10px; 
-            margin-top: 98px; 
-            width: 148px;
-        }
-        #cognomIn {
-            position: absolute; 
-            margin-left: 10px; 
-            margin-top: 121px; 
-            width: 148px;
-        }
-        
-        #cami {
-            position: absolute;
-            background-color: gray;
-            padding: 1em;
-            margin-bottom: 1em;
-            font-size: x-small;
-            width: 148px;
-            height: 115px;
-            left: 426px;
-            top: 161px;
-        }
+      #usuari {
+        position: absolute;
+        background-color: gray;
+        font-size: large;
+        width: 168px;
+        height: 152px;
+        left: 426px;
+      }
 
-        #botons {
-            position: absolute; 
-            margin-left: 0px;
-            margin-top: 305px;
-            width: 416px; 
-            height: 38px;
-            visibility: hidden;
-        }
+      #fotIn {
+        position: absolute;
+        margin-left: 10px;
+        margin-top: 10px;
+        height: 80px;
+        width: 80px;
+      }
+      #nomIn {
+        position: absolute;
+        margin-left: 10px;
+        margin-top: 98px;
+        width: 148px;
+      }
+      #cognomIn {
+        position: absolute;
+        margin-left: 10px;
+        margin-top: 121px;
+        width: 148px;
+      }
 
-        #botosi {
-            position: absolute; 
-            margin-left: 0px; 
-            padding: 10px 50px; 
-        }
+      #cami {
+        position: absolute;
+        background-color: gray;
+        padding: 1em;
+        margin-bottom: 1em;
+        font-size: x-small;
+        width: 148px;
+        height: 115px;
+        left: 426px;
+        top: 161px;
+      }
 
-        #botono {
-            position: absolute; 
-            margin-left: 291px; 
-            padding: 10px 50px; 
-        }
+      #botons {
+        position: absolute;
+        margin-left: 0px;
+        margin-top: 305px;
+        width: 416px;
+        height: 38px;
+        visibility: hidden;
+      }
+
+      #botosi {
+        position: absolute;
+        margin-left: 0px;
+        padding: 10px 50px;
+      }
+
+      #botono {
+        position: absolute;
+        margin-left: 291px;
+        padding: 10px 50px;
+      }
     </style>
-    <script type="text/javascript" src="mef.js"> //Inclou el codi de l'utòmat fet en JS
+    <script type="text/javascript" src="mef.js">
+      //Inclou el codi de l'utòmat fet en JS
     </script>
     <script>
+      let caminet = [];
 
-        let caminet = []
+      function check_sn(str) {
+        alert("hey");
+        document.getElementById("botons").setAttribute("visibility", "visible");
+        let si = document.getElementById("botosi");
+        let no = document.getElementById("botono");
+        console.log("HOLA");
+        /*
+                  console.log(document.getElementById('botons').style.visibility)
+                  while (!si.clicked && !no.clicked) {
+                      console.log(`Waiting...${str}`)
+                    /*  setTimeout(() => {
+                          console.log("waiting...")
+                      }, 2000)
+                  }
+                  document.getElementById('botons').setAttribute('visibility','hidden')
+                  console.log("Fumata")
+                  if (si.clicked)
+                      return 's'
+                  else
+                      return 'n'*/
+      }
 
-        function check_sn(str) {
-            document.getElementById('botons').setAttribute('visibility','visible')
-            let si = document.getElementById('botosi');
-            let no = document.getElementById('botono');
-            console.log("HOLA")
-            console.log(document.getElementById('botons').style.visibility)
-            while (!si.clicked && !no.clicked) {
-                console.log(`Waiting...${str}`)
-              /*  setTimeout(() => {
-                    console.log("waiting...")
-                }, 2000)*/
-            }
-            document.getElementById('botons').setAttribute('visibility','hidden')
-            console.log("Fumata")
-            if (si.clicked)
-                return 's'
-            else
-                return 'n'
-        }
+      /*function check_sn(str) {
+                  while (true) {
+                      let cont2 = prompt(`${str}[s/n]`).toLowerCase()
+                      if (cont2 !== "s" && cont2 !== "n")
+                          alert("Respon amb s/n")
+                      else
+                          return cont2
+                  }
+              }*/
 
-        /*function check_sn(str) {
-            while (true) {
-                let cont2 = prompt(`${str}[s/n]`).toLowerCase()
-                if (cont2 !== "s" && cont2 !== "n")
-                    alert("Respon amb s/n")
-                else
-                    return cont2
-            }
-        }*/
-        
-        function fesLogin() {
-            let field1 = document.getElementById('fotIn').getAttribute('src')
-            let field2 = document.getElementById('nomIn')
-            let field3 = document.getElementById('cognomIn')
-            document.getElementById('fotIn').setAttribute('src',foto.value.split('\\').pop())
-            document.getElementById('nomIn').innerHTML=nom.value
-            document.getElementById('cognomIn').innerHTML=cognom.value
-            document.getElementById('credencials').style.visibility='hidden'
-            document.getElementById('tot').style.opacity = '1'
-
-            estatAutomat.emit("engega") //engega l'autòmat
-        }
+    function amaga() {
+        let field1 = document.getElementById("fotIn").getAttribute("src");
+        let field2 = document.getElementById("nomIn");
+        let field3 = document.getElementById("cognomIn");
+        document
+          .getElementById("fotIn")
+          .setAttribute("src", foto.value.split("\\").pop());
+        document.getElementById("nomIn").innerHTML = nom.value;
+        document.getElementById("cognomIn").innerHTML = cognom.value;
+        document.getElementById("credencials").style.display = "none";
+        document.getElementById("tot").style.opacity = "1";
+      }
+      async function fesLogin() {
+        alert("fesLogin");
+        await amaga();
+        estatAutomat.emit("engega"); //engega l'autòmat
+      }
     </script>
-</head>
+  </head>
 
-<body>
+  <body>
     <!--header-->
-        <div id="credencials">
-            <form>
-                <label><strong>LOGIN</strong></label><br/><br/>
-                <label for="nom">Nom:</label><br/>
-                <input type="text" id="nom" name="nom" placeholder="Nom"/><br/>
-                <label for="cognom">Cognom:</label><br/>
-                <input type="text" id="cognom" name="cognom" placeholder="Cognom"/><br/>
-                <label for="foto">Foto:</label><br/>
-                <input type="file" id="foto" name="foto"/><br/><br/>
-            </form>
-			<button onclick="javascript:fesLogin()" style="width: 22em; height: 3em;">Confirmar</button>
-        </div>
+    <div id="credencials">
+      <form>
+        <label><strong>LOGIN</strong></label
+        ><br /><br />
+        <label for="nom">Nom:</label><br />
+        <input type="text" id="nom" name="nom" placeholder="Nom" /><br />
+        <label for="cognom">Cognom:</label><br />
+        <input
+          type="text"
+          id="cognom"
+          name="cognom"
+          placeholder="Cognom"
+        /><br />
+        <label for="foto">Foto:</label><br />
+        <input type="file" id="foto" name="foto" /><br /><br />
+      </form>
+      <button onclick="javascript:fesLogin()" style="width: 22em; height: 3em">
+        Confirmar
+      </button>
+    </div>
     <!--/header>
     <section-->
-        <div id="tot">
-            <div id="nomjoc">
-                <h1>Escull la teva pr&ograve;pia aventura!</h1>
-            </div>
-            <div id="pagina">
-                <p id="missatge_estat">Comencem</p>
-            </div>
-            <div id="usuari">
-                <img id="fotIn" src="https://via.placeholder.com/80"/>
-                <div id="nomIn">...</div>
-                <div id="cognomIn">...</div>
-            </div>
-            <div id="cami">
-                <p id="caminet">Camí recorregut</p>
-            </div>
-            <div id="botons">
-                <button onclick="javascript:check_sn('s')" id="botosi">SI</button>
-                <button onclick="javascript:check_sn('n')" id="botono">NO</button>
-            </div>
-
-        </div>
+    <div id="tot">
+      <div id="nomjoc">
+        <h1>Escull la teva pr&ograve;pia aventura!</h1>
+      </div>
+      <div id="pagina">
+        <p id="missatge_estat">Comencem</p>
+      </div>
+      <div id="usuari">
+        <img id="fotIn" src="https://via.placeholder.com/80" />
+        <div id="nomIn">...</div>
+        <div id="cognomIn">...</div>
+      </div>
+      <div id="cami">
+        <p id="caminet">Camí recorregut</p>
+      </div>
+      <div id="botons">
+        <button onclick="javascript:check_sn('s')" id="botosi">SI</button>
+        <button onclick="javascript:check_sn('n')" id="botono">NO</button>
+      </div>
+    </div>
     <!--/section-->
     <footer>
-        <div style="position:absolute; top:100%; left:36.5%;">&copy; 2022 Jordi Alonso</div>
+      <div style="position: absolute; top: 100%; left: 36.5%">
+        &copy; 2022 Jordi Alonso
+      </div>
     </footer>
-</body>
+  </body>
 </html>
