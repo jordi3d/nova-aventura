@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>La teva aventura</title>
+        <style>
+            body {
+                max-width: 30rem;
+                margin: 0 auto;
+            }
+
+            .text {
+                background-color: coral;
+                padding: 2em;
+                margin-bottom: 2em;
+                font-size: x-large;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Benvingut a la teva aventura, llegeix i disfruta!</h1>
+        </header>
+
+        <main>
+            <header>
+                <div>Pagina</div>
+            </header>
+            <section class="text">Text</section>
+            <footer>
+                <button onclick="ferSi()">Sí</button>
+                <button onclick="ferNo()">No</button>
+            </footer>
+        </main>
+
+        <script>
+            let historia = [
+                {text:'benvingut'},
+                {text:'continuem'}
+            ]
+            let pagina = 0;
+            let text = document.querySelector('.text');
+            text.textContent = historia[pagina].text;
+
+            function ferSi() {
+                pagina = pagina + 1;
+                text.textContent = historia[pagina].text;
+            }
+            function ferNo() {
+                pagina = pagina - 1;
+                text.textContent = historia[pagina].text;
+            }
+        </script>
+
+    </body>
+
+</html>
