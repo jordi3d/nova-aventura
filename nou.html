@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Prova</title>
+    <style>
+        body {
+            margin: 0px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            /*background-image: url("./diagrama.png");
+            background-repeat: no-repeat;*/
+            background-size: 560px;
+        }
+        
+        .sino {
+            position: absolute;
+            font-weight: bolder;
+        }
+        
+        .br {
+            text-shadow: 0 1px white;
+            font-weight: bolder;
+            color: #b8bec5;
+        }
+        
+        .etiqueta {
+            position: absolute;
+            font-weight: bolder;
+            text-align: center;
+            z-index: 1;
+        }
+        
+        .quadrat {
+            position: absolute;
+            background-color: blue;
+            opacity: 1;
+            z-index: 0;
+        }
+        
+        .rombo {
+            position: absolute;
+            background-color: red;
+            transform: rotate(45deg);
+            opacity: 1;
+            z-index: 0;
+        }
+        
+        #nht {
+            position: absolute;
+            left: 73px;
+            top: 141px;
+            width: 108px;
+            height: 50px;
+        }
+        
+        #funciona {
+            left: 239px;
+            top: 30px;
+            width: 100px;
+            height: 100px;
+        }
+        
+        #hht {
+            left: 442px;
+            top: 124px;
+            width: 75px;
+            height: 75px;
+        }
+        
+        #burro {
+            left: 237px;
+            top: 195px;
+            width: 105px;
+            height: 47px;
+        }
+        
+        #hsa {
+            left: 88px;
+            top: 242px;
+            width: 75px;
+            height: 75px;
+        }
+        
+        #lhc {
+            left: 237px;
+            top: 326px;
+            width: 105px;
+            height: 47px;
+        }
+        
+        #ah {
+            left: 69px;
+            top: 392px;
+            width: 117px;
+            height: 47px;
+        }
+        
+        #pcaa {
+            left: 247px;
+            top: 430px;
+            width: 85px;
+            height: 85px;
+        }
+        
+        #edp {
+            left: 426px;
+            top: 262px;
+            width: 106px;
+            height: 106px;
+        }
+        
+        #lh {
+            left: 426px;
+            top: 477px;
+            width: 107px;
+            height: 47px;
+        }
+        
+        #np {
+            left: 214px;
+            top: 589px;
+            width: 152px;
+            height: 47px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="diagrama-flux" style="position: absolute; top: 0px; left: 0px">
+        <svg height="800" width="600">
+        <polyline
+          points="126,141 126,80 219,80"
+          style="fill: none; stroke: black; stroke-width: 3"
+        />
+        <polyline
+          points="359,80 480,80 480,110"
+          style="fill: none; stroke: black; stroke-width: 3"
+        />
+        <polyline
+          points="290,196 290,162 427,162"
+          style="fill: none; stroke: black; stroke-width: 3"
+        />
+        <polyline
+          points="479,212 479,242"
+          style="fill: none; stroke: black; stroke-width: 3"
+        />
+        <polyline
+          points="126,191 126,228"
+          style="fill: none; stroke: black; stroke-width: 3"
+        />
+        <polyline
+          points="290,242 290,326"
+          style="fill: none; stroke: black; stroke-width: 3"
+        />
+        <polyline
+          points="170,279 280,279 280,326"
+          style="fill: none; stroke: black; stroke-width: 3"
+        />
+        <polyline
+          points="126,331 126,392"
+          style="fill: none; stroke: black; stroke-width: 3"
+        />
+        <polyline
+          points="300,326 300,315 427,315"
+          style="fill: none; stroke: black; stroke-width: 3"
+        />
+        <polyline
+          points="479,389 479,477"
+          style="fill: none; stroke: black; stroke-width: 3"
+        />
+        <polyline
+          points="290,373 290,414"
+          style="fill: none; stroke: black; stroke-width: 3"
+        />
+        <polyline
+          points="290,531 290,589"
+          style="fill: none; stroke: black; stroke-width: 3"
+        />
+        <polyline
+          points="260,350 200,350 200,472 231,472"
+          style="fill: none; stroke: black; stroke-width: 3"
+        />
+        <polyline
+          points="126,439 126,614 214,614"
+          style="fill: none; stroke: black; stroke-width: 3"
+        />
+        <polyline
+          points="324,614 479,614 479,524"
+          style="fill: none; stroke: black; stroke-width: 3"
+        />
+      </svg>
+        <div stlye="z-index: 1;">
+            <div class="sino" style="left: 188px; top: 57px">SI</div>
+            <div class="sino" style="left: 377px; top: 57px">NO</div>
+            <div class="etiqueta" style="position: absolute; left: 242px; top: 71px">
+                FUNCIONA?
+            </div>
+            <div id="funciona" class="rombo"></div>
+        </div>
+        <div stlye="z-index: 1;">
+            <div class="br etiqueta" style="position: absolute; left: 95px; top: 146px">
+                NO HO
+                <br /> TOQUIS
+            </div>
+            <div id="nht" class="quadrat"></div>
+        </div>
+        <div stlye="z-index: 1;">
+            <div class="sino" style="left: 374px; top: 137px">SI</div>
+            <div class="sino" style="left: 487px; top: 217px">NO</div>
+            <div class="etiqueta" style="left: 448px; top: 142px">
+                HO HAS
+                <br /> TOCAT?
+            </div>
+            <div id="hht" class="rombo"></div>
+        </div>
+        <div stlye="z-index: 1;">
+            <div class="etiqueta" style="left: 258px; top: 208px">BURRO!</div>
+            <div id="burro" class="quadrat"></div>
+        </div>
+        <div stlye="z-index: 1;">
+            <div class="etiqueta" style="left: 262px; top: 330px">
+                L'HAS
+                <br /> CAGAT
+            </div>
+            <div id="lhc" class="quadrat"></div>
+        </div>
+        <div stlye="z-index: 1;">
+            <div class="sino" style="left: 187px; top: 254px">SI</div>
+            <div class="sino" style="left: 95px; top: 348px">NO</div>
+            <div class="etiqueta" style="left: 94px; top: 259px">
+                HO SAP
+                <br /> ALG&Uacute;?
+            </div>
+            <div id="hsa" class="rombo"></div>
+        </div>
+        <div stlye="z-index: 1;">
+            <div class="etiqueta" style="left: 78px; top: 405px">AMAGA-HO!</div>
+            <div id="ah" class="quadrat"></div>
+        </div>
+        <div stlye="z-index: 1;">
+            <div class="sino" style="left: 374px; top: 292px">SI</div>
+            <div class="sino" style="left: 487px; top: 411px">NO</div>
+            <div class="etiqueta" style="left: 427px; top: 296px">
+                ET DONAR&Agrave;
+                <br /> PROBLEMES?
+            </div>
+            <div id="edp" class="rombo"></div>
+        </div>
+        <div stlye="z-index: 1;">
+            <div class="sino" style="left: 269px; top: 546px">SI</div>
+            <div class="sino" style="left: 205px; top: 478px">NO</div>
+            <div class="etiqueta" style="left: 257px; top: 432px">
+                POTS
+                <br /> CULPAR <br /> ALG&Uacute; <br /> ALTRE?
+            </div>
+            <div id="pcaa" class="rombo"></div>
+        </div>
+        <div stlye="z-index: 1;">
+            <div class="etiqueta" style="left: 430px; top: 490px">LLENÇA-HO!</div>
+            <div id="lh" class="quadrat"></div>
+        </div>
+        <div stlye="z-index: 1;">
+            <div class="etiqueta" style="left: 226px; top: 603px">
+                CAP PROBLEMA!
+            </div>
+            <div id="np" class="quadrat"></div>
+        </div>
+    </div>
+</body>
+
+</html>
