@@ -32,6 +32,7 @@
         
         .quadrat {
             position: absolute;
+            border: 1px solid black;
             background-color: blue;
             opacity: 1;
             z-index: 0;
@@ -39,6 +40,7 @@
         
         .rombo {
             position: absolute;
+            border: 1px solid black;
             background-color: red;
             transform: rotate(45deg);
             opacity: 1;
@@ -101,7 +103,7 @@
         }
         
         #ah {
-            left: 69px;
+            left: 64px;
             top: 392px;
             width: 117px;
             height: 47px;
@@ -141,11 +143,11 @@
     <div id="diagrama-flux" style="position: absolute; top: 0px; left: 0px">
         <svg height="800" width="600">
         <polyline
-          points="126,141 126,80 219,80"
+          points="126,141 126,81 219,81"
           style="fill: none; stroke: black; stroke-width: 3"
         />
         <polyline
-          points="359,80 480,80 480,110"
+          points="359,81 480,81 480,110"
           style="fill: none; stroke: black; stroke-width: 3"
         />
         <polyline
@@ -153,7 +155,7 @@
           style="fill: none; stroke: black; stroke-width: 3"
         />
         <polyline
-          points="479,212 479,242"
+          points="480,212 480,242"
           style="fill: none; stroke: black; stroke-width: 3"
         />
         <polyline
@@ -165,7 +167,7 @@
           style="fill: none; stroke: black; stroke-width: 3"
         />
         <polyline
-          points="170,279 280,279 280,326"
+          points="170,281 280,281 280,326"
           style="fill: none; stroke: black; stroke-width: 3"
         />
         <polyline
@@ -177,7 +179,7 @@
           style="fill: none; stroke: black; stroke-width: 3"
         />
         <polyline
-          points="479,389 479,477"
+          points="481,389 481,477"
           style="fill: none; stroke: black; stroke-width: 3"
         />
         <polyline
@@ -189,7 +191,7 @@
           style="fill: none; stroke: black; stroke-width: 3"
         />
         <polyline
-          points="260,350 200,350 200,472 231,472"
+          points="260,350 200,350 200,474 231,474"
           style="fill: none; stroke: black; stroke-width: 3"
         />
         <polyline
@@ -226,11 +228,11 @@
             <div id="hht" class="rombo"></div>
         </div>
         <div stlye="z-index: 1;">
-            <div class="etiqueta" style="left: 258px; top: 208px">BURRO!</div>
+            <div class="etiqueta" style="left: 260px; top: 209px">BURRO!</div>
             <div id="burro" class="quadrat"></div>
         </div>
         <div stlye="z-index: 1;">
-            <div class="etiqueta" style="left: 262px; top: 330px">
+            <div class="etiqueta" style="left: 262px; top: 331px">
                 L'HAS
                 <br /> CAGAT
             </div>
@@ -239,14 +241,14 @@
         <div stlye="z-index: 1;">
             <div class="sino" style="left: 187px; top: 254px">SI</div>
             <div class="sino" style="left: 95px; top: 348px">NO</div>
-            <div class="etiqueta" style="left: 94px; top: 259px">
+            <div class="etiqueta" style="left: 94px; top: 262px">
                 HO SAP
                 <br /> ALG&Uacute;?
             </div>
             <div id="hsa" class="rombo"></div>
         </div>
         <div stlye="z-index: 1;">
-            <div class="etiqueta" style="left: 78px; top: 405px">AMAGA-HO!</div>
+            <div class="etiqueta" style="left: 75px; top: 407px">AMAGA-HO!</div>
             <div id="ah" class="quadrat"></div>
         </div>
         <div stlye="z-index: 1;">
@@ -278,6 +280,9 @@
             <div id="np" class="quadrat"></div>
         </div>
     </div>
+    <script>
+        /*let resposta = prompt("s/n");*/
+    </script>
 </body>
 
 </html>
