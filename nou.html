@@ -53,11 +53,23 @@
             height: 50px;
         }
         
+        @keyframes example {
+            from {
+                background-color: red;
+            }
+            to {
+                background-color: yellow;
+            }
+        }
+        
         #funciona {
             left: 239px;
             top: 30px;
             width: 100px;
             height: 100px;
+            animation-name: example;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
         }
         
         #hht {
@@ -192,13 +204,13 @@
         <div stlye="z-index: 1;">
             <div class="sino" style="left: 188px; top: 57px">SI</div>
             <div class="sino" style="left: 377px; top: 57px">NO</div>
-            <div class="etiqueta" style="position: absolute; left: 242px; top: 71px">
+            <div class="br etiqueta" style="position: absolute; left: 242px; top: 71px">
                 FUNCIONA?
             </div>
             <div id="funciona" class="rombo"></div>
         </div>
         <div stlye="z-index: 1;">
-            <div class="br etiqueta" style="position: absolute; left: 95px; top: 146px">
+            <div class="etiqueta" style="position: absolute; left: 95px; top: 146px">
                 NO HO
                 <br /> TOQUIS
             </div>
