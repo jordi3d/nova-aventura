@@ -33,7 +33,7 @@
         .quadrat {
             position: absolute;
             border: 1px solid black;
-            background-color: blue;
+            background-color: gray;
             opacity: 1;
             z-index: 0;
         }
@@ -41,14 +41,14 @@
         .rombo {
             position: absolute;
             border: 1px solid black;
-            background-color: red;
+            background-color: gray;
             transform: rotate(45deg);
             opacity: 1;
             z-index: 0;
         }
         
         #nht {
-            position: absolute;
+            /*position: absolute;*/
             left: 73px;
             top: 141px;
             width: 108px;
@@ -65,10 +65,10 @@
         }
         
         #funciona {
-            left: 239px;
-            top: 30px;
-            width: 100px;
-            height: 100px;
+            left: 248px;
+            top: 39px;
+            width: 82px;
+            height: 82px;
             animation-name: example;
             animation-duration: 2s;
             animation-iteration-count: infinite;
@@ -143,11 +143,11 @@
     <div id="diagrama-flux" style="position: absolute; top: 0px; left: 0px">
         <svg height="800" width="600">
         <polyline
-          points="126,141 126,81 219,81"
+          points="126,141 126,81 232,81"
           style="fill: none; stroke: black; stroke-width: 3"
         />
         <polyline
-          points="359,81 480,81 480,110"
+          points="348,81 480,81 480,110"
           style="fill: none; stroke: black; stroke-width: 3"
         />
         <polyline
@@ -206,15 +206,15 @@
         <div stlye="z-index: 1;">
             <div class="sino" style="left: 188px; top: 57px">SI</div>
             <div class="sino" style="left: 377px; top: 57px">NO</div>
-            <div class="br etiqueta" style="position: absolute; left: 242px; top: 71px">
+            <div class="br etiqueta" style="position: absolute; left: 244px; top: 71px">
                 FUNCIONA?
             </div>
             <div id="funciona" class="rombo"></div>
         </div>
         <div stlye="z-index: 1;">
-            <div class="etiqueta" style="position: absolute; left: 95px; top: 146px">
+            <div id="nhtt" class="etiqueta" style="position: absolute; left: 95px; top: 148px">
                 NO HO
-                <br /> TOQUIS
+                <br /> TOQUIS!
             </div>
             <div id="nht" class="quadrat"></div>
         </div>
@@ -228,13 +228,13 @@
             <div id="hht" class="rombo"></div>
         </div>
         <div stlye="z-index: 1;">
-            <div class="etiqueta" style="left: 260px; top: 209px">BURRO!</div>
+            <div class="etiqueta" style="left: 260px; top: 210px">BURRO!</div>
             <div id="burro" class="quadrat"></div>
         </div>
         <div stlye="z-index: 1;">
             <div class="etiqueta" style="left: 262px; top: 331px">
                 L'HAS
-                <br /> CAGAT
+                <br /> CAGAT!
             </div>
             <div id="lhc" class="quadrat"></div>
         </div>
@@ -270,18 +270,277 @@
             <div id="pcaa" class="rombo"></div>
         </div>
         <div stlye="z-index: 1;">
-            <div class="etiqueta" style="left: 430px; top: 490px">LLENÇA-HO!</div>
+            <div class="etiqueta" style="left: 431px; top: 492px">LLENÇA-HO!</div>
             <div id="lh" class="quadrat"></div>
         </div>
         <div stlye="z-index: 1;">
-            <div class="etiqueta" style="left: 226px; top: 603px">
+            <div class="etiqueta" style="left: 226px; top: 604px">
                 CAP PROBLEMA!
             </div>
             <div id="np" class="quadrat"></div>
         </div>
     </div>
+    <p>HOLA</p>
+    <div id="output"></div>
     <script>
-        /*let resposta = prompt("s/n");*/
+        function automat(ajustos) {
+            this._actual = ajustos.estatInicial;
+            this.accions = ajustos.accions;
+            this.estats = ajustos.estats;
+        }
+
+        let resposta = "KeyX";
+
+        window.addEventListener(
+            "keydown",
+            function(event) {
+                resposta = event.code;
+                if (resposta === "KeyS" || resposta === "KeyN") {
+                    const p = document.createElement("p");
+                    p.textContent = `KeyboardEvent: key='${event.key}' | code='${event.code}'`;
+                    document.getElementById("output").appendChild(p);
+                    if (resposta === "KeyS") estatAutomat.emit("si");
+                    else estatAutomat.emit("no");
+                }
+            },
+            true
+        );
+
+        let prototip = automat.prototype;
+
+        prototip.emit = function(esdeveniment) {
+            let estat = this.estats[this._actual];
+            let transicio = estat[esdeveniment];
+            if (!transicio) {
+                throw new Error(
+                    `Esdeveniment(${esdeveniment}) de l'actual` +
+                    ` estat(${this._actual}) no existeix.`
+                );
+            }
+            let vellEstat = this._actual;
+            let nouEstat = transicio.a;
+            this._actual = nouEstat;
+            transicio.accions.forEach((fnName) => {
+                this.accions[fnName].call(this, vellEstat, nouEstat);
+            });
+        };
+
+        prototip.getState = function() {
+            return this._actual;
+        };
+
+        let estatAutomat = new automat({
+            estatInicial: "inicial", // Estat Inicial
+            estatFinal: "final", // Estat Final
+
+            // Tots els estats possibles. Descriu els esdeveniments per passar de l'estat actual al següent
+            // i les accions que s'han de fer a partir d'aquest punt.
+
+            estats: {
+                inicial: {
+                    // des de l'estat
+                    engega: {
+                        // esdeveniment
+                        a: "funciona", // passa a l'estat
+                        si: "funcionaSI",
+                        no: "funcionaNO",
+                        accions: ["funciona"], // accions a fer
+                    },
+                    si: {
+                        a: "resposta", // passa a l'estat
+                        accions: [""], // accions a fer
+                    },
+                    no: {
+                        a: "resposta", // passa a l'estat
+                        accions: [""], // accions a fer
+                    },
+                },
+                resposta: {
+                    si: {
+                        a: "funciona",
+                        accions: ["fesSI"],
+                    },
+                    no: {
+                        a: "funciona",
+                        accions: ["fesNO"],
+                    },
+                },
+                funciona: {
+                    si: {
+                        a: "nht",
+                        accions: ["nht"],
+                    },
+                    no: {
+                        a: "hht",
+                        accions: ["hht"],
+                    },
+                },
+                nht: {
+                    si: {
+                        a: "hsa",
+                        accions: ["hsa"],
+                    },
+                    no: {
+                        a: "ah",
+                        accions: ["ah"],
+                    },
+                },
+                hht: {
+                    si: {
+                        a: "nht",
+                        accions: ["nht"],
+                    },
+                    no: {
+                        a: "hht",
+                        accions: ["hht"],
+                    },
+                },
+                b: {
+                    si: {
+                        a: "lhc",
+                        accions: ["b"],
+                    },
+                    no: {
+                        a: "lhc",
+                        accions: ["b"],
+                    },
+                },
+                lhc: {
+                    si: {
+                        a: "pcaa",
+                        accions: ["lhc"],
+                    },
+                    no: {
+                        a: "lhc",
+                        accions: ["lhc"],
+                    },
+                },
+                hsa: {
+                    si: {
+                        a: "lhc",
+                        accions: ["lhc"],
+                    },
+                    no: {
+                        a: "ah",
+                        accions: ["ah"],
+                    },
+                },
+                pcaa: {
+                    si: {
+                        a: "cp",
+                        accions: ["cp"],
+                    },
+                    no: {
+                        a: "lhc",
+                        accions: ["lhc"],
+                    },
+                },
+                ah: {
+                    si: {
+                        a: "cp",
+                        accions: ["ah"],
+                    },
+                    no: {
+                        a: "cp",
+                        accions: ["ah"],
+                    },
+                },
+                cp: {
+                    si: {
+                        a: "cp",
+                        accions: ["cp"],
+                    },
+                    no: {
+                        a: "cp",
+                        accions: ["cp"],
+                    },
+                },
+                final: {
+                    si: {
+                        a: "final",
+                        accions: ["timeout"],
+                    },
+                    no: {
+                        a: "final",
+                        accions: ["timeout"],
+                    },
+                },
+            },
+            accions: {
+                funciona: function() {
+                    setTimeout(() => {
+                        this.emit("si");
+                    }, 2000);
+                    alert("Funciona?");
+                },
+                nht: function() {
+                    let tmp = document.getElementById("funciona").style;
+                    tmp.removeProperty("animationName");
+                    tmp.removeProperty("animationDuration");
+                    tmp.removeProperty("animationIterationCount");
+                    tmp.backgroundColor = "red";
+                    document.getElementById("nhtt").className += " br";
+                    tmp = document.getElementById("nht");
+                    tmp.style.animationName = "example";
+                    tmp.style.animationDuration = "2s";
+                    tmp.style.animationIterationCount = "infinite";
+                    setTimeout(() => {
+                        this.emit("si");
+                    }, 500);
+                },
+                hht: function() {
+                    alert("Ho has tocat?");
+                    setTimeout(() => {
+                        this.emit("si");
+                    }, 500);
+                },
+                hsa: function() {
+                    alert("Ho sap algú?");
+                    setTimeout(() => {
+                        this.emit("si");
+                    }, 500);
+                },
+                lhc: function() {
+                    alert("L'has cagat!");
+                    setTimeout(() => {
+                        this.emit("si");
+                    }, 500);
+                },
+                edp: function() {
+                    alert("Et donarà problemes?");
+                    setTimeout(() => {
+                        this.emit("si");
+                    }, 500);
+                },
+                ah: function() {
+                    alert("Amaga-ho!");
+                    setTimeout(() => {
+                        this.emit("si");
+                    }, 500);
+                },
+                lh: function() {
+                    alert("Llença-ho!");
+                    setTimeout(() => {
+                        this.emit("si");
+                    }, 500);
+                },
+                cp: function() {
+                    alert("Cap problema!");
+                    setTimeout(() => {
+                        this.emit("si");
+                    }, 500);
+                    throw new Error(0);
+                },
+                timeout: function() {
+                    alert("FINAL");
+                    setTimeout(() => {
+                        this.emit("si");
+                    }, 500);
+                    throw new Error(0);
+                },
+            },
+        });
+        estatAutomat.emit("engega");
     </script>
 </body>
 
